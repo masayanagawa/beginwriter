@@ -37,7 +37,8 @@ export default {
   ** Plugins to load before mounting the App
   */
   plugins: [
-    { src: '~/plugins/localStorage.js', ssr: false }
+    { src: '~/plugins/localStorage.js', ssr: false },
+    { src: '~/plugins/amplify_init.js', ssr: false },
   ],
   /*
   ** Nuxt.js modules
