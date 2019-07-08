@@ -5,7 +5,6 @@
 </template>
 
 <script>
-localStorage.clear()
 export default {
   
 }
