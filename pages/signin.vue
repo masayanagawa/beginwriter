@@ -1,38 +1,43 @@
 <template>
 <div class='window'>
-  <!-- <div class='wrapper'>
+  <div class='wrapper'>
     <div class='sub_wrapper'>
-        <h1>Start of Begin.</h1>
+        <h1>Begin</h1>
         <div class="loginForm">
             <div class="form">
-                <label>userID</label>
-                <input v-model="userid" type='text' name='userid'>
                 <label>email</label>
-                <input v-model="mail" type='text' name='email'>
+                <input v-model="email" type='text' name='id'>
                 <label>Password</label>
                 <input v-model="password" type='password' name='pass'>
-                <input type='submit' value='Sign Up' v-bind:disabled="isDisabled" v-on:click="signup">
+                <input type='submit' value='Login' v-bind:disabled="isDisabled" v-on:click="signin">
             </div>
         </div>
     </div>
-  </div> -->
+  </div>
 </div>
 </template>
 
 <script>
+import axios from 'axios'
+import { mapMutations } from 'vuex'
 import { Auth } from 'aws-amplify'
 
+let baseURL = process.env.API_URL
 export default {
     data() {
+        if (localStorage.getItem('user')) {
+          this.$router.push(`/admin/${localStorage.getItem('user')}`)
+        }
         return {
-            userid: null, 
-            mail: null,
-            password: null
+          email: null,
+          password: null,
+          disabled: true,
+            articleItem: []
         }
     },
     computed: {
         isDisabled: function () {
-          if(this.userid && this.mail && this.password) {
+          if(this.email && this.password) {
             this.disabled = false
             return this.disabled
           } else {
@@ -41,20 +46,27 @@ export default {
           }
         }
     },
+    mounted() {
+        this.$nextTick(() => {
+            this.$nuxt.$loading.start()
+            setTimeout(() => this.$nuxt.$loading.finish(), 300)
+        })
+    },
     methods: {
-        signup: function () {
-            Auth.signUp(this.mail, this.password, this.mail)
-                .then(data => {
-                this.$store.dispatch('authSet', this.mail)
-                this.$store.dispatch('userSet', this.userid)
-                this.$router.push('/confirm')
+        signin: function () {
+            Auth.signIn(this.email, this.password)
+            .then(data => {
+                //this.$store.dispatch('userSet', this.userid)
+                // localStorage.setItem('user', this.$store.state.authUser)
+                location.href = '/'
             })
             .catch(err => {
                 console.log(err)
             })
         }
-    }
+    },
 }
+
 </script>
 
 <style>

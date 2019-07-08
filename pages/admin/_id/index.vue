@@ -40,10 +40,11 @@ import { mapMutations } from 'vuex'
 let baseURL = process.env.API_URL
 let user;
 export default {
+  middleware: 'amplify-auth',
     data() {
-        if (!localStorage.getItem('user')) {
-          this.$router.push(`/admin/login`)
-        }
+        // if (!localStorage.getItem('user')) {
+        //   this.$router.push(`/admin/login`)
+        // }
         return {
             userId: null,
             articleItem: [],
@@ -54,7 +55,7 @@ export default {
     mounted() {
         this.$nextTick(() => {
             this.$nuxt.$loading.start()
-            this.getArticle(localStorage.getItem('user'))
+            //this.getArticle(localStorage.getItem('user'))
             setTimeout(() => this.$nuxt.$loading.finish(), 300)
         })
     },

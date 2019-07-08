@@ -5,7 +5,7 @@
         <h1>Begin</h1>
         <div class="loginForm">
             <div class="form">
-                <label>ID</label>
+                <label>emain</label>
                 <input v-model="userid" type='text' name='id'>
                 <label>Password</label>
                 <input v-model="password" type='password' name='pass'>
