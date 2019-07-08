@@ -25,9 +25,9 @@ import { Auth } from 'aws-amplify'
 let baseURL = process.env.API_URL
 export default {
     data() {
-        if (localStorage.getItem('user')) {
-          this.$router.push(`/admin/${localStorage.getItem('user')}`)
-        }
+        // if (localStorage.getItem('user')) {
+        //   this.$router.push(`/admin/${localStorage.getItem('user')}`)
+        // }
         return {
           email: null,
           password: null,
