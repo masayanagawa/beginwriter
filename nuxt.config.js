@@ -1,6 +1,6 @@
 
 require('dotenv').config();
-const { API_URL, API_KEY } = process.env
+const { API_URL, API_KEY, AMPLIFY_AUTH_REGION, AMPLIFY_AUTH_USER_POOL_ID, AMPLIFY_AUTH_USER_POOL_WEB_CLIENT_ID, AMPLIFY_AUTH_IDENTITY_POOL_ID } = process.env
 export default {
   mode: 'spa',
   /*
@@ -45,6 +45,7 @@ export default {
   */
   modules: [
     '@nuxtjs/axios',
+    '@nuxtjs/dotenv',
     // '@nuxtjs/auth'
   ],
   axios: {
@@ -65,6 +66,10 @@ export default {
   },
   env: {
     API_URL,
-    API_KEY
+    API_KEY,
+    AMPLIFY_AUTH_REGION, 
+    AMPLIFY_AUTH_USER_POOL_ID, 
+    AMPLIFY_AUTH_USER_POOL_WEB_CLIENT_ID, 
+    AMPLIFY_AUTH_IDENTITY_POOL_ID
   }
 }
