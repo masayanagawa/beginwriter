@@ -84,7 +84,7 @@ dist
 # Service worker
 sw.*
 
-plugins/
+plugins/amplify_init.js
 
 # Mac OSX
 .DS_Store
