@@ -26,7 +26,7 @@ export default {
 
 <style>
 .navbar {
-    background-color: #19e48f;
+    background-color: #04d47e;
     position: fixed;
     width: 100vw;
     height: 50px;

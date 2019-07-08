@@ -1,6 +1,15 @@
 <template>
-<div class='window'>
-  <!-- <div class='wrapper'>
+<div>
+    <div class="window">
+        <div class="preparing-wrapper">
+            <h1>Preparing now.....</h1>
+            <p>I'm preparing Sign Up System now.</p>
+        </div>
+    </div>
+</div>
+
+<!-- <div class='window'>
+  <div class='wrapper'>
     <div class='sub_wrapper'>
         <h1>Start of Begin.</h1>
         <div class="loginForm">
@@ -15,8 +24,8 @@
             </div>
         </div>
     </div>
-  </div> -->
-</div>
+  </div>
+</div> -->
 </template>
 
 <script>
@@ -58,7 +67,7 @@ export default {
 </script>
 
 <style>
-body {
+/* body {
     background-color: #ebedf0;
 }
 
@@ -141,5 +150,31 @@ input[type='submit']:hover {
 input[type="submit"][disabled]{
     background:#71fdc3;
     cursor:not-allowed;
+} */
+
+.window {
+    width: 100vw;
+    height: 100vh;
+}
+
+.preparing-wrapper {
+    padding-top: 50px;
+    width: 100vw;
+    height: 100%;
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    align-items: center;
+}
+
+.preparing-wrapper h1 {
+    padding: 30px 0;
+    font-size: 90px;
+    font-weight: bold;
+}
+
+.preparing-wrapper p {
+    font-size: 26px;
+    font-weight: bold;
 }
 </style>

@@ -49,11 +49,11 @@
                 </ul>
             </div>
         </div>
-        <div class='footer'>
+        <!-- <div class='footer'>
             <div class='copyright'>
                 <p>&copy; 2019 Begin.inc</p>
             </div>
-        </div>
+        </div> -->
     </div>
 </div>
 </template>
@@ -174,7 +174,7 @@ body {
 .err {
     padding-top: 50px;
     width: 100vw;
-    min-height: 800px;
+    height: 100%;
     display: flex;
     flex-flow: column nowrap;
     justify-content: center;
@@ -184,7 +184,7 @@ body {
 .loading {
     padding-top: 50px;
     width: 100vw;
-    min-height: 800px;
+    height: 100%;
     display: flex;
     flex-flow: column nowrap;
     justify-content: center;
@@ -203,7 +203,7 @@ body {
 .wrapper {
     padding-top: 50px;
     width: 100vw;
-    min-height: 800px;
+    height: 100%;
     display: flex;
     flex-flow: row nowrap;
     justify-content: space-between;
@@ -213,6 +213,7 @@ body {
 .sub_wrapper {
     margin: 0;
     width: 100vw;
+    height: 100%;
     display: flex;
     flex-flow: column nowrap;
     align-items: center;
@@ -221,7 +222,7 @@ body {
 .side {
     margin: 0;
     padding: 30px;
-    min-height: inherit;
+    height: 100%;
     width: 20%;
     background-color: #006aff;
     color: #fff;

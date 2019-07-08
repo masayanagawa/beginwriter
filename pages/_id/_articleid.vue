@@ -103,7 +103,7 @@ body {
 .loading {
     padding-top: 50px;
     width: 100vw;
-    min-height: 800px;
+    height: 100%;
     display: flex;
     flex-flow: column nowrap;
     justify-content: center;
