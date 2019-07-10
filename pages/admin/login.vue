@@ -159,7 +159,7 @@ input[type='submit'] {
 input[type='submit']:hover {
   border-style: none;
   cursor: pointer;
-  background: #19e48f;
+  background: #0aff99;
 }
 
 input[type="submit"][disabled]{

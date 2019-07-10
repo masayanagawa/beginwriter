@@ -1,7 +1,7 @@
 <template>
   <nav class="navbar is-white" role="navigation" aria-label="main navigation">
     <div class="navbar-brand">
-      <div class="navbar-item">Begin</div>
+      <div class="navbar-item"><a href="/">beginwriter</a></div>
       <div class="navbar-item">{{userid}}</div>
     </div><!-- navbar-brand END -->
   </nav>
@@ -28,6 +28,7 @@ export default {
 .navbar {
     background-color: #04d47e;
     position: fixed;
+    z-index: 5;
     width: 100vw;
     height: 50px;
 }
@@ -42,6 +43,11 @@ export default {
     font-size: 22px;
     padding: 0 10px;
     color: #fcfcfc;
+}
+
+.navbar-item a {
+    color: #fcfcfc;
+    text-decoration: none;
 }
 
 .menu {

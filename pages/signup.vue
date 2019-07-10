@@ -171,10 +171,12 @@ input[type="submit"][disabled]{
     padding: 30px 0;
     font-size: 90px;
     font-weight: bold;
+    text-align: center;
 }
 
 .preparing-wrapper p {
     font-size: 26px;
     font-weight: bold;
+    text-align: center;
 }
 </style>

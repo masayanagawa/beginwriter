@@ -1,17 +1,26 @@
 <template>
-<div class='window'>
-  <div class='wrapper'>
-    <div class='sub_wrapper'>
-        <h1>Begin</h1>
-        <div class="loginForm">
-            <div class="form">
-                <label>email</label>
-                <input v-model="email" type='text' name='id'>
-                <label>Password</label>
-                <input v-model="password" type='password' name='pass'>
-                <input type='submit' value='Login' v-bind:disabled="isDisabled" v-on:click="signin">
-            </div>
-        </div>
+<div>
+  <div class="window" v-if="loading">
+      <div class='loading'>
+          <div class="circle">
+              <div class="circle-inner"></div>
+          </div>
+      </div>
+  </div>
+  <div class='window' v-else>
+    <div class='wrapper'>
+      <div class='sub_wrapper'>
+          <h1>Begin</h1>
+          <div class="loginForm">
+              <div class="form">
+                  <label>email</label>
+                  <input v-model="email" type='text' name='id'>
+                  <label>Password</label>
+                  <input v-model="password" type='password' name='pass'>
+                  <input type='submit' value='Login' v-bind:disabled="isDisabled" v-on:click="signin">
+              </div>
+          </div>
+      </div>
     </div>
   </div>
 </div>
@@ -25,14 +34,13 @@ import { Auth } from 'aws-amplify'
 let baseURL = process.env.API_URL
 export default {
     data() {
-        // if (localStorage.getItem('user')) {
-        //   this.$router.push(`/admin/${localStorage.getItem('user')}`)
-        // }
         return {
           email: null,
           password: null,
           disabled: true,
-            articleItem: []
+          userid: 'yappy',
+          loading: true,
+          articleItem: []
         }
     },
     computed: {
@@ -49,6 +57,11 @@ export default {
     mounted() {
         this.$nextTick(() => {
             this.$nuxt.$loading.start()
+            if (localStorage.getItem('user')) {
+              this.$router.push(`/admin/${localStorage.getItem('user')}`)
+            } else {
+              this.loading = false
+            }
             setTimeout(() => this.$nuxt.$loading.finish(), 300)
         })
     },
@@ -57,8 +70,9 @@ export default {
             Auth.signIn(this.email, this.password)
             .then(data => {
                 //this.$store.dispatch('userSet', this.userid)
-                // localStorage.setItem('user', this.$store.state.authUser)
-                location.href = '/'
+                //localStorage.setItem('user', this.$store.state.authUser)
+                localStorage.setItem('user', this.userid)
+                location.href = `/admin/${this.userid}`
             })
             .catch(err => {
                 console.log(err)

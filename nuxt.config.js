@@ -46,10 +46,23 @@ export default {
   modules: [
     '@nuxtjs/axios',
     '@nuxtjs/dotenv',
+    '@nuxtjs/markdownit'
     // '@nuxtjs/auth'
   ],
   axios: {
     
+  },
+  markdownit: {
+    preset: 'markdown',
+    injected: true, 
+    breaks: false, 
+    html: true, 
+    linkify: true,
+    typography: true, 
+    xhtmlOut: true,
+    langPrefix: 'language-',
+    quotes: '“”‘’',
+    highlight: function (/*str, lang*/) { return ''; },
   },
   // auth: {
 

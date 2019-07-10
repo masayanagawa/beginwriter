@@ -13,7 +13,8 @@
                     <h1>{{ item.title }}</h1>
                     <h4>by @{{ item.username }}</h4>
                 </div>
-                <p class='text'>{{ item.article }}</p>
+                <!-- <p v-html="$md.render(item.article)" class='text'>{{ item.article }}</p> -->
+                <div v-html="$md.render(item.article)" class='text'></div>
             </div>
         </div>
     </div>
@@ -30,12 +31,14 @@ export default {
         return {
             userid: this.$route.params.id,
             loading: true,
+            text: null,
             articleItem: []
         }
     },
     mounted() {
         console.log(this.$route.params.articleid)
         console.log(this.$route.params.id)
+
         this.$nextTick(() => {
             this.$nuxt.$loading.start()
             if(!localStorage.getItem('article')) {
@@ -113,7 +116,7 @@ body {
 .wrapper {
     padding-top: 50px;
     width: 100vw;
-    min-height: 800px;
+    height: 100%;
     display: flex;
     flex-flow: row nowrap;
     justify-content: space-between;
@@ -167,7 +170,6 @@ body {
 
 .text {
     padding-top: 30px;
-    font-size: 18px;
     color: #000;
     white-space: pre-line;
 }

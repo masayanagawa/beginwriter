@@ -2,15 +2,15 @@
 <div>
     <div class="window">
         <div class="index-wrapper">
-            <h1>begin</h1>
-            <p>A New page, Begin the write.</p>
+            <h1>beginwriter</h1>
+            <p>A New page, You begin the writing it.</p>
         </div>
     </div>
 </div>
 </template>
 
 <script>
-// localStorage.clear()
+localStorage.clear()
 export default {
   
 }
@@ -36,10 +36,12 @@ export default {
     padding: 30px 0;
     font-size: 90px;
     font-weight: bold;
+    text-align: center;
 }
 
 .index-wrapper p {
     font-size: 26px;
     font-weight: bold;
+    text-align: center;
 }
 </style>

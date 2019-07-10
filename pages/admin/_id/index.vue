@@ -11,8 +11,9 @@
         <div class='overflow-wrapper'>
           <div class='article_title'>
               <h1>Overview</h1>
+              <nuxt-link v-bind:to="{name:'admin-id-new',params:{id: userId}}"><button class='new'>New</button></nuxt-link>
           </div>
-          <ul>
+          <ul class="list">
               <div v-if="articleItem" class='article_list'>
                   <li v-for="(item, index) in articleItem" :key="index" class='article'>
                       <nuxt-link v-bind:to="{name:'id-articleid',params:{id: item.username, articleid: item.id}}">
@@ -36,6 +37,7 @@
 <script>
 import axios from 'axios'
 import { mapMutations } from 'vuex'
+import { Auth } from 'aws-amplify'
 
 let baseURL = process.env.API_URL
 let user;
@@ -45,6 +47,7 @@ export default {
         // if (!localStorage.getItem('user')) {
         //   this.$router.push(`/admin/login`)
         // }
+        
         return {
             userId: null,
             articleItem: [],
@@ -55,7 +58,13 @@ export default {
     mounted() {
         this.$nextTick(() => {
             this.$nuxt.$loading.start()
-            //this.getArticle(localStorage.getItem('user'))
+            if(localStorage.getItem('user') != this.$route.params.id) {
+                this.$router.push(`/signin`)
+            } else {
+                this.userId = localStorage.getItem('user')
+                this.getArticle(localStorage.getItem('user'))
+            }
+            
             setTimeout(() => this.$nuxt.$loading.finish(), 300)
         })
     },
@@ -170,6 +179,9 @@ body {
     max-width: 100%;
     padding: 0;
     margin: 30px 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
 .article_title h1 {
@@ -178,7 +190,7 @@ body {
     margin: 0 10px;
 }
 
-ul {
+.list {
     list-style-type: none;
     padding: 0;
     margin: 0;
@@ -199,7 +211,25 @@ ul {
     justify-content: flex-start;
 }
 
-li {
+
+@media screen and (max-width:320px) {
+  .article {
+    margin: 0;
+  }
+  .article_list {
+    justify-content:  center;
+  }
+}
+@media screen and (min-width:320px) and (max-width:1000px) {
+  .article {
+    margin: 10px;
+  }
+  .article_list {
+    justify-content:  center;
+  }
+}
+
+.article {
     width: 300px;
     height: 150px;
     max-width: 100%;
@@ -218,23 +248,6 @@ li {
     animation-iteration-count: 1;
     text-decoration: none;
     transition: all 0.3s;
-}
-
-@media screen and (max-width:320px) {
-  li {
-    margin: 0;
-  }
-  .article_list {
-    justify-content:  center;
-  }
-}
-@media screen and (min-width:320px) and (max-width:1000px) {
-  li {
-    margin: 10px;
-  }
-  .article_list {
-    justify-content:  center;
-  }
 }
 
 .article a {
@@ -390,6 +403,21 @@ li:hover {
     z-index: 4;
 }
 
+.new {
+    width: 80px;
+    height: 40px;
+    background: #04d47e;
+    border-style: none;
+    font-size: 20px;
+    font-weight: bold;
+    outline: 0;
+    border-radius: 5px;
+    margin: 20px;
+    color: #fff;
+    border: solid 3px #00ff62;
+    cursor: pointer;
+    opacity: 1;
+}
 
 @keyframes rotate-circle-right {
     0%   {
