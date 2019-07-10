@@ -149,6 +149,17 @@ export default {
                     this.articleItem.push(i)
                 }
                 console.log(this.articleItem)
+                this.articleItem.sort(function(a, b) {
+                    if (a.id < b.id) {
+                        return 1;
+                    } else {
+                        return -1;
+                    }
+                })
+
+                console.log(this.articleItem)
+                
+                console.log(lists);
                 this.$store.dispatch('articleListSet', this.articleItem)
                 localStorage.setItem('articlelist', JSON.stringify(this.$store.state.articlelist))
                 this.loading = false
@@ -157,6 +168,8 @@ export default {
                 console.log(err);
             })
         }
+
+        
     }
 }
 </script>
