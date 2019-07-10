@@ -10,7 +10,7 @@
 </template>
 
 <script>
-localStorage.clear()
+// localStorage.clear()
 export default {
   
 }
