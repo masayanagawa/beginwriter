@@ -16,7 +16,7 @@
           <ul class="list">
               <div v-if="articleItem" class='article_list'>
                   <li v-for="(item, index) in articleItem" :key="index" class='article'>
-                      <nuxt-link v-bind:to="{name:'id-articleid',params:{id: item.username, articleid: item.id}}">
+                      <nuxt-link v-bind:to="{name:'admin-id-articleid-edit',params:{id: item.username, articleid: item.id}}">
                           <h2>{{ item.title }}</h2>
                           <p>{{ item.date_time }}</p>
                       </nuxt-link>
