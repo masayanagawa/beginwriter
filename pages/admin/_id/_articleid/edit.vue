@@ -12,7 +12,7 @@
     </div>
     <div class='sub_wrapper'>
         <div class='submit_bar'>
-            <input type="submit" value='Save' v-bind:disabled="isDisabled" v-on:click="setArticle(id)">
+            <input type="submit" value='Edit' v-bind:disabled="isDisabled" v-on:click="setArticle(id)">
         </div>
         <div class="details">
             <div class="detail">
@@ -43,7 +43,7 @@ export default {
         return {
             id: this.$route.params.articleid,
             userid: this.$route.params.id,
-            loading: false,
+            loading: true,
             title: null,
             text: '',
             disabled: true,
@@ -148,7 +148,7 @@ export default {
                 headers
             ).then(res => {
                 console.log(res.data)
-                this.$router.push(`/${this.userid}/${id}`)
+                location.href = `/${this.userid}/${id}`
             }).catch(err => {
                 console.log(err);
             })

@@ -16,10 +16,11 @@
     <div class='window' v-else>
         <div class='wrapper'>
             <div class='side'>
+                <img :src="img" alt="アイコン" class="icon">
                 <div v-if="username" class='profile'>
-                <h1>{{ username }}</h1>
-                <h3>{{ userId }}</h3>
-                <p>{{ profile }}</p>
+                    <h1>{{ username }}</h1>
+                    <h3>{{ userId }}</h3>
+                    <p>{{ profile }}</p>
                 </div>
                 <div v-else>
                     <div class="circle-side">
@@ -70,6 +71,7 @@ export default {
             profile: null,
             articleItem: [],
             errMsg: false,
+            img: `https://beginwriter.s3-ap-northeast-1.amazonaws.com/profile_icon/${this.$route.params.id}.jpg`,
             loading: true
         }
     },
@@ -120,7 +122,7 @@ export default {
                 this.userId = `@${res.data.body.user_id}`
                 this.username = res.data.body.user_name
                 this.profile = res.data.body.user_profile
-
+                this.img = `https://beginwriter.s3-ap-northeast-1.amazonaws.com/profile_icon/${res.data.body.user_id}.jpg`
                 this.$store.dispatch('profileSet', res.data.body)
                 localStorage.setItem('profile', JSON.stringify(this.$store.state.userprofile))
             }).catch(err => {
@@ -244,6 +246,12 @@ body {
     align-items: center;
 }
 
+.icon {
+    width: 200px;
+    height: 200px;
+    object-fit: cover;
+}
+
 .profile {
     margin: 20px 0;
     /* animation-name: fadein;
@@ -277,11 +285,11 @@ body {
     font-weight: lighter;
 }
 
+
 ul {
     list-style-type: none;
     padding: 0;
     margin: 0;
-    width: 90%;
     color: #fff;
     display: flex;
     flex-flow: column nowrap;
@@ -290,8 +298,9 @@ ul {
 }
 
 .article_list {
-    display: flex;
     width: 960px;
+    max-width: 100%;
+    display: flex;
     flex-flow: row wrap;
     justify-content:  flex-start;
 }
@@ -560,6 +569,92 @@ li:hover {
     0%   { transform: rotate(0deg); }
     50%  { transform: rotate(0deg); }
     100% { transform: rotate(180deg); }
+}
+
+@media screen and (max-width:1280px) {
+    .wrapper {
+        display: flex;
+        flex-flow: column nowrap;
+    }
+    .side {
+        margin: 0;
+        padding: 10px;
+        height: 30%;
+        width: 100%;
+        display: flex;
+        flex-flow: row nowrap;
+        justify-content: center;
+        align-items: center;
+    }
+    .icon {
+        margin: 50px;
+    }
+}
+
+@media screen and (min-width: 640px) and (max-width:960px) {
+    .article_list {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .icon {
+        width: 150px;
+        height: 150px;
+        margin: 20px;
+    }
+
+}
+
+@media screen and (min-width:320px) and (max-width:640px) {
+    .article_title {
+        margin: 10px 0;
+    }
+    .article_title h1 {
+        font-size: 24px;
+    }
+    .article_list {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .icon {
+        margin: 20px;
+        width: 150px;
+        height: 150px;
+    }
+    .profile h1 {
+        font-size: 18px;
+    }
+    .profile h3 {
+        font-size: 12px;
+    }
+
+    .profile p {
+        font-size: 12px;
+    }
+}
+
+@media screen and (max-width:320px) {
+    .article_title h1 {
+        font-size: 22px;
+    }
+    .icon {
+        margin: 20px;
+        width: 120px;
+        height: 120px;
+    }
+    .profile h1 {
+        font-size: 18px;
+    }
+    .profile h3 {
+        font-size: 12px;
+    }
+
+    .profile p {
+        font-size: 12px;
+    }
 }
 
 </style>

@@ -5,16 +5,16 @@
             <div class="circle-inner"></div>
         </div>
   </div>
-  <div class='wrapper' v-else>
+  <div class='detail_wrapper' v-else>
     <div class='sub_wrapper'>
         <div v-for="(item ,index) in articleItem" :key="index" class="details">
             <div class="detail">
-                <div class='title'>
+                <div class='detail_title'>
                     <h1>{{ item.title }}</h1>
-                    <h4>by @{{ item.username }}</h4>
+                    <h4>by <nuxt-link v-bind:to="{name:'id',params:{id: item.username}}" class="userlink">@{{ item.username }}</nuxt-link></h4>
                 </div>
                 <!-- <p v-html="$md.render(item.article)" class='text'>{{ item.article }}</p> -->
-                <div v-html="$md.render(item.article)" class='text'></div>
+                <div v-html="$md.render(item.article)" class='detail_text'></div>
             </div>
         </div>
     </div>
@@ -113,7 +113,7 @@ body {
     align-items: center;
 }
 
-.wrapper {
+.detail_wrapper {
     padding-top: 50px;
     width: 100vw;
     height: 100%;
@@ -154,7 +154,7 @@ body {
 }
 
 
-.title {
+.detail_title {
     margin-bottom: 20px;
 }
 
@@ -168,7 +168,12 @@ body {
     font-weight: lighter;
 }
 
-.text {
+.detail h4 .userlink {
+    color: #555;
+    text-decoration: none;
+}
+
+.detail_text {
     padding-top: 30px;
     color: #000;
     white-space: pre-line;

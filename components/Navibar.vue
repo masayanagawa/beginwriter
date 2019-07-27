@@ -2,7 +2,7 @@
   <nav class="navbar is-white" role="navigation" aria-label="main navigation">
     <div class="navbar-brand">
       <div class="navbar-item"><a href="/">beginwriter</a></div>
-      <div class="navbar-item">{{userid}}</div>
+      <div class="navbar-item"><nuxt-link v-bind:to="{name:'admin-id',params:{id: userid}}">{{userid}}</nuxt-link></div>
     </div><!-- navbar-brand END -->
   </nav>
 </template>

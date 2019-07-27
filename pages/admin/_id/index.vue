@@ -14,8 +14,8 @@
               <nuxt-link v-bind:to="{name:'admin-id-new',params:{id: userId}}"><button class='new'>New</button></nuxt-link>
           </div>
           <ul class="list">
-              <div v-if="articleItem" class='article_list'>
-                  <li v-for="(item, index) in articleItem" :key="index" class='article'>
+              <div v-if="articleItem" class='admin_article_list'>
+                  <li v-for="(item, index) in articleItem" :key="index" class='admin_article'>
                       <nuxt-link v-bind:to="{name:'admin-id-articleid-edit',params:{id: item.username, articleid: item.id}}">
                           <h2>{{ item.title }}</h2>
                           <p>{{ item.date_time }}</p>
@@ -153,26 +153,6 @@ body {
     flex-flow: column nowrap;
 }
 
-.profile {
-    /* animation-name: fadein;
-    animation-duration: 1s;
-    animation-iteration-count: 1; */
-}
-.profile h1 {
-    font-size: 28px;
-}
-.profile h3 {
-    margin-left: 5px;
-    font-size: 16px;
-    font-weight: lighter;
-}
-
-.profile p {
-    margin: 20px 0;
-    font-size: 14px;
-    font-style: italic;
-    color: #ccc;
-}
 
 .article_title {
     width: 1080px;
@@ -203,7 +183,7 @@ body {
     align-items: center;
 }
 
-.article_list {
+.admin_article_list {
     display: flex;
     width: 1080px;
     max-width: 100%;
@@ -216,7 +196,7 @@ body {
   .article {
     margin: 0;
   }
-  .article_list {
+  .admin_article_list {
     justify-content:  center;
   }
 }
@@ -224,12 +204,12 @@ body {
   .article {
     margin: 10px;
   }
-  .article_list {
+  .admin_article_list {
     justify-content:  center;
   }
 }
 
-.article {
+.admin_article {
     width: 300px;
     height: 150px;
     max-width: 100%;
@@ -250,7 +230,7 @@ body {
     transition: all 0.3s;
 }
 
-.article a {
+.admin_article a {
     color: #222;
     border-radius: 8px;
     width: 100%;
@@ -266,7 +246,7 @@ body {
     z-index: 4;
 }
 
-.article a h2 { 
+.admin_article a h2 { 
     padding: 30px;
     margin: 10px 0;
     font-size: 22px;
@@ -278,11 +258,11 @@ body {
 li:hover {
     background: #dfdede;
 }
-.article a:hover {
+.admin_article a:hover {
     cursor: pointer;
 }
 
-.article p {
+.admin_article p {
     font-size: 12px;
     color: #aaa;
     margin-top: auto;
