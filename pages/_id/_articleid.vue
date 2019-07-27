@@ -269,4 +269,122 @@ body {
     50%  { transform: rotate(0deg); }
     100% { transform: rotate(180deg); }
 }
+
+@media screen and (max-width:1280px) {
+    .wrapper {
+        display: flex;
+        flex-flow: column nowrap;
+    }
+    .side {
+        margin: 0;
+        padding: 10px;
+        height: 30%;
+        width: 100%;
+        display: flex;
+        flex-flow: row nowrap;
+        justify-content: center;
+        align-items: center;
+    }
+    .icon {
+        margin: 50px;
+    }
+}
+
+@media screen and (max-width:1280px) {
+    .details {
+        width: 95%;
+        margin: 50px;
+    }
+
+    .detail {
+        margin: 10px;
+        padding: 40px;
+    }
+    .detail h1 {
+        font-size: 28px;
+        margin-bottom: 10px;
+    }
+
+    .detail h4 {
+        font-size: 14px;
+        font-weight: lighter;
+    }
+
+    .detail_text {
+        font-size: 14px;
+    }
+
+}
+
+@media screen and (min-width: 640px) and (max-width:960px) {
+    .details {
+        width: 95%;
+        margin: 50px;
+    }
+
+    .detail {
+        margin: 10px;
+        padding: 40px;
+    }
+    .detail h1 {
+        font-size: 28px;
+        margin-bottom: 10px;
+    }
+
+    .detail h4 {
+        font-size: 14px;
+        font-weight: lighter;
+    }
+
+    .detail_text {
+        font-size: 14px;
+    }
+
+}
+
+@media screen and (min-width:320px) and (max-width:640px) {
+    .details {
+        width: 90%;
+        margin: 50px;
+    }
+
+    .detail {
+        margin: 10px;
+        padding: 20px;
+    }
+    .detail h1 {
+        font-size: 26px;
+        margin-bottom: 10px;
+    }
+
+    .detail h4 {
+        font-size: 14px;
+        font-weight: lighter;
+    }
+
+    .detail_text {
+        font-size: 14px;
+    }
+}
+
+@media screen and (max-width:320px) {
+    .details {
+        width: 90%;
+        margin: 10px;
+    }
+
+    .detail {
+        margin: 10px;
+        padding: 20px;
+    }
+    .detail h1 {
+        font-size: 20px;
+        margin-bottom: 5px;
+    }
+
+    .detail h4 {
+        font-size: 8px;
+        font-weight: lighter;
+    }
+}
 </style>
