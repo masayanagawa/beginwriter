@@ -41,19 +41,20 @@ export default {
 
         this.$nextTick(() => {
             this.$nuxt.$loading.start()
-            if(!localStorage.getItem('article')) {
-                this.getArticleDetail(this.$route.params.articleid, this.$route.params.id);
-            } else {
-                let article = JSON.parse(localStorage.getItem('article'))
-                console.log(article[0].id)
-                if(article[0].id == this.$route.params.articleid){
-                    this.articleItem = article
-                    this.loading = false
-                } else {
-                    this.getArticleDetail(this.$route.params.articleid, this.$route.params.id);
-                }
+            this.getArticleDetail(this.$route.params.articleid, this.$route.params.id);
+            // if(!localStorage.getItem('article')) {
+            //     this.getArticleDetail(this.$route.params.articleid, this.$route.params.id);
+            // } else {
+            //     let article = JSON.parse(localStorage.getItem('article'))
+            //     console.log(article[0].id)
+            //     if(article[0].id == this.$route.params.articleid){
+            //         this.articleItem = article
+            //         this.loading = false
+            //     } else {
+            //         this.getArticleDetail(this.$route.params.articleid, this.$route.params.id);
+            //     }
                 
-            }
+            // }
 
             
             setTimeout(() => this.$nuxt.$loading.finish(), 300)
