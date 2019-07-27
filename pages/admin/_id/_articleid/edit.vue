@@ -123,7 +123,7 @@ export default {
         },
         setArticle(id) {
             let user;
-            var url = `${baseURL}/test/setarticle`;
+            var url = `${baseURL}/test/articleupdate`;
             var counturl = `${baseURL}/test/testcount`;
             var headers = {
                 headers: {
@@ -139,7 +139,7 @@ export default {
             this.date = `${year}-${("0" + month).slice(-2)}-${("0"+nowdate.getDate()).slice(-2)} ${("0"+hour).slice(-2)}:${("0"+minutes).slice(-2)}`
 
             axios.post(url, {
-                    id: id,
+                    id: Number(id),
                     article: this.text,
                     date_time: this.date,
                     title: this.title,
@@ -147,9 +147,8 @@ export default {
                 },
                 headers
             ).then(res => {
-                console.log(this.count)
-                console.log(res.data.statusCode)
-                this.$router.push(`/${this.userid}/${this.count}`)
+                console.log(res.data)
+                this.$router.push(`/${this.userid}/${id}`)
             }).catch(err => {
                 console.log(err);
             })
