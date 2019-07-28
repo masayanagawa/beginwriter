@@ -601,7 +601,7 @@ li:hover {
     .icon {
         width: 150px;
         height: 150px;
-        margin: 20px;
+        margin: 5px;
     }
 
 }
@@ -619,8 +619,14 @@ li:hover {
         justify-content: center;
         align-items: center;
     }
+    .side {
+        display: flex;
+        flex-flow: row nowrap;
+        justify-content: space-around;
+        align-items: center;
+    }
     .icon {
-        margin: 20px;
+        margin: 0px;
         width: 150px;
         height: 150px;
     }
@@ -641,7 +647,7 @@ li:hover {
         font-size: 22px;
     }
     .icon {
-        margin: 20px;
+        margin: 0px;
         width: 120px;
         height: 120px;
     }

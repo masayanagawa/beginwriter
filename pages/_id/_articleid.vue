@@ -270,27 +270,7 @@ body {
     100% { transform: rotate(180deg); }
 }
 
-@media screen and (max-width:1280px) {
-    .wrapper {
-        display: flex;
-        flex-flow: column nowrap;
-    }
-    .side {
-        margin: 0;
-        padding: 10px;
-        height: 30%;
-        width: 100%;
-        display: flex;
-        flex-flow: row nowrap;
-        justify-content: center;
-        align-items: center;
-    }
-    .icon {
-        margin: 50px;
-    }
-}
-
-@media screen and (max-width:1280px) {
+@media screen and (min-width:960px) and (max-width:1280px) {
     .details {
         width: 95%;
         margin: 50px;
